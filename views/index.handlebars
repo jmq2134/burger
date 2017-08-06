@@ -1,56 +1,56 @@
-<h1>Cats!</h1>
+<h1>Bob's Burgers</h1>
 
-<h2>Cats that are not sleepy!</h2>
+<h2>Today's Burger Menu</h2>
 
 <ul>
-  {{#each cats}}
-    {{#unless this.sleepy}}
+  {{#each burgers}}
+    {{#unless this.devoured}}
       <li>
-        {{this.name}}
+        {{this.burger_name}}
 
         <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="sleepy" value="true">
-          <button type="submit">SLEEP TIME!</button>
+          <input type="hidden" name="devoured" value="true">
+          <button type="submit">EAT THE BURGER</button>
         </form>
 
-        {{> cats/delete-cat}}
+        {{> burgers/delete-cat}}
       </li>
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Cats that are sleepy!</h2>
+<h2>Burger Hall of Fame</h2>
 
 <ul>
-  {{#each cats}}
-    {{#if this.sleepy}}
+  {{#each burgers}}
+    {{#if this.devoured}}
       <li>
-        {{this.name}}
+        {{this.burger_name}}
 
         <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="sleepy" value="false">
-          <button type="submit">WAKE UP!</button>
+          <input type="hidden" name="devoured" value="false">
+          <button type="submit">ADD TO MENU</button>
         </form>
 
-        {{> cats/delete-cat}}
+        {{> burgers/delete-cat}}
       </li>
     {{/if}}
   {{/each}}
 </ul>
 
-<h2>Add a Cat</h2>
+<h2>Add a new burger:</h2>
 <form class="create-update-form" action="/" method="POST">
 
   <div class="form-group">
-    <label for="ca">Cat Name:</label>
+    <label for="ca">Burger Name:</label>
     <input type="text" id="ca" name="name">
   </div>
 
   <div class="form-group">
-    <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+    <label for="devoured">Menu or Burger Hall of Fame?</label><br>
+    <input type="radio" name="devoured" value="1" checked>Hall of Fame<br>
+    <input type="radio" name="devoured" value="0"> Current Menu
   </div>
 
-  <button type="submit">Add Cat</button>
+  <button type="submit">Add Burger</button>
 </form>
