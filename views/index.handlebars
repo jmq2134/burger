@@ -11,7 +11,7 @@
                         {{this.burger_name}}
                         <form action="/{{this.ID}}?_method=PUT" method="POST">
                             <input type="hidden" name="devoured" value="true">
-                            <button type="submit">EAT THE BURGER</button>
+                            <button type="submit">Eat the the burger </button>
                         </form>
                     </li>
                     {{/unless}} {{/each}}
@@ -22,20 +22,22 @@
                 <h1> Welcome to Bob's </h1>
                 <a href="#" class="thumbnail" style="margin-top: 20px">
                      <img src="http://i0.kym-cdn.com/entries/icons/original/000/014/700/how-to-draw-bob-bobs-burgers_1_000000007041_5.jpg" alt="..."></a>
-                <h3>Add a new burger:</h3>
-                <form class="create-update-form" action="/" method="POST">
-                    <div class="form-group">
-                        <label for="burger">Burger Name:</label>
-                        <input type="text" id="burger" name="burger_name">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="newAdd">
+                        <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Add a new burger to the menu:</a></h4>
                     </div>
-                    <div class="form-group">
-                        <label for="devoured">Menu or Burger Hall of Fame?</label>
-                        <br>
-                        <input type="radio" name="devoured" value="1" checked>Hall of Fame
-                        <input type="radio" name="devoured" value="0"> Current Menu
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <div class="panel-body" style="text-align: center">
+                            <form class="create-update-form" action="/" method="POST">
+                                <div class="form-group">
+                                    <input type="text" id="burger" name="burger_name" style="padding: 10px 50px 10px 20px">
+                                    <button type="submit" id="addBurger">Add Burger</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <button type="submit">Add Burger</button>
-                </form>
+                </div>
             </div>
             <!-- BURGER HALL OF FAME -->
             <div class="col-md-4">
@@ -47,7 +49,7 @@
                         {{this.burger_name}}
                         <form action="/{{this.ID}}?_method=PUT" method="POST">
                             <input type="hidden" name="devoured" value="false">
-                            <button type="submit">ADD TO MENU</button>
+                            <button type="submit">Add to menu</button>
                         </form>
                     </li>
                     {{/if}} {{/each}}
