@@ -1,56 +1,58 @@
-<h1>Bob's Burgers</h1>
-
-<h2>Today's Burger Menu</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        {{this.burger_name}}
-
-        <form action="/{{this.ID}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="true">
-          <button type="submit">EAT THE BURGER</button>
-        </form>
-
-{{!--         {{> burgers/delete-burger}} --}}
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burger Hall of Fame</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      <li>
-        {{this.burger_name}}
-
-        <form action="/{{this.ID}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="false">
-          <button type="submit">ADD TO MENU</button>
-        </form>
-
-{{!--         {{> burgers/delete-burger}} --}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a new burger:</h2>
-<form class="create-update-form" action="/" method="POST">
-
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="burger_name">
-  </div>
-
-  <div class="form-group">
-    <label for="devoured">Menu or Burger Hall of Fame?</label><br>
-    <input type="radio" name="devoured" value="1" checked>Hall of Fame<br>
-    <input type="radio" name="devoured" value="0"> Current Menu
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+<body>
+    <div class="container" style="min-width:100%">
+        <div class="row">
+            <!-- BURGERS OF THE DAY -->
+            <div class="col-md-4">
+                <h2> Burgers of the Day </h2>
+                <hr>
+                <ul>
+                    {{#each burgers}} {{#unless this.devoured}}
+                    <li>
+                        {{this.burger_name}}
+                        <form action="/{{this.ID}}?_method=PUT" method="POST">
+                            <input type="hidden" name="devoured" value="true">
+                            <button type="submit">EAT THE BURGER</button>
+                        </form>
+                    </li>
+                    {{/unless}} {{/each}}
+                </ul>
+            </div>
+            <!-- WELCOME TO BOBS -->
+            <div class="col-md-4">
+                <h1> Welcome to Bob's </h1>
+                <a href="#" class="thumbnail" style="margin-top: 20px">
+                     <img src="http://i0.kym-cdn.com/entries/icons/original/000/014/700/how-to-draw-bob-bobs-burgers_1_000000007041_5.jpg" alt="..."></a>
+                <h3>Add a new burger:</h3>
+                <form class="create-update-form" action="/" method="POST">
+                    <div class="form-group">
+                        <label for="burger">Burger Name:</label>
+                        <input type="text" id="burger" name="burger_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="devoured">Menu or Burger Hall of Fame?</label>
+                        <br>
+                        <input type="radio" name="devoured" value="1" checked>Hall of Fame
+                        <input type="radio" name="devoured" value="0"> Current Menu
+                    </div>
+                    <button type="submit">Add Burger</button>
+                </form>
+            </div>
+            <!-- BURGER HALL OF FAME -->
+            <div class="col-md-4">
+                <h2 style="font-weight: bold; font-size: 30px; color: navy; text-align: center; padding-top: 80px; font-family: 'Permanent Marker', cursive; letter-spacing: 3px"> Burger Hall of Fame </h2>
+                <hr>
+                <ul>
+                    {{#each burgers}} {{#if this.devoured}}
+                    <li>
+                        {{this.burger_name}}
+                        <form action="/{{this.ID}}?_method=PUT" method="POST">
+                            <input type="hidden" name="devoured" value="false">
+                            <button type="submit">ADD TO MENU</button>
+                        </form>
+                    </li>
+                    {{/if}} {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>

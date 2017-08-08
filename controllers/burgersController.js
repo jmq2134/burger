@@ -44,7 +44,7 @@ router.delete("/:id", function(req, res) {
     console.log("condition", condition);
 
     burger.delete({
-        devoured: req.body.devoured
+        ID: req.params.id
     }, condition, function() {
         res.redirect("/");
     });
