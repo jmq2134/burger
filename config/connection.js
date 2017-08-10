@@ -1,21 +1,32 @@
 // Set up MySQL connection
 var mysql = require("mysql");
 
-var connection = mysql.createConnection({
-  // port: 3306,
-  host: "us-cdbr-iron-east-05.cleardb.net",
-  user: "b7c6cc101f6679",
-  password: "c3f4a9b5",
-  database: "heroku_ce86b77c480e4fc"
-});
+// var connection = mysql.createConnection({
+//   // port: 3306,
+//   host: "us-cdbr-iron-east-05.cleardb.net",
+//   user: "b7c6cc101f6679",
+//   password: "c3f4a9b5",
+//   database: "heroku_ce86b77c480e4fc"
+// });
+
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'Jujupop12',
+        database: 'burgers_db'
+    });
+};
 
 // Make connection
 connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
+    if (err) {
+        console.error("error connecting: " + err.stack);
+        return;
+    }
+    console.log("connected as id " + connection.threadId);
 });
 
 // Export connection for our ORM to use
