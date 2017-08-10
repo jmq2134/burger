@@ -9,6 +9,8 @@ var mysql = require("mysql");
 //   database: "heroku_ce86b77c480e4fc"
 // });
 
+var connection;
+
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
