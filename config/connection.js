@@ -11,8 +11,8 @@ var mysql = require("mysql");
 
 var connection;
 
-if (process.env.CLEAR_DATABASE_URL) {
-    connection = mysql.createConnection(process.env.CLEAR_DATABASE_URL);
+if (process.env.CLEARDB_DATABASE_URL) {
+    connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 } else {
     connection = mysql.createConnection({
         host: 'localhost',
@@ -35,9 +35,9 @@ connection.connect(function(err) {
 module.exports = connection;
 
 // CLEARDB_DATABASE_URL: 
-//mysql://b7c6cc101f6679:c3f4a9b5@us-cdbr-iron-east-05.cleardb.net/heroku_ce86b77c480e4fc?reconnect=true
+mysql://b78c94370867cb:bac431b4@us-cdbr-iron-east-05.cleardb.net/heroku_7dc163398f910b9?reconnect=true
 
 // DB_HOST: us-cdbr-iron-east-05.cleardb.net
-// DB_DATABASE: heroku_ce86b77c480e4fc
-// DB_USERNAME: b7c6cc101f6679
-// DB_PASSWORD: c3f4a9b5
+// DB_DATABASE: heroku_7dc163398f910b9
+// DB_USERNAME: b78c94370867cb
+// DB_PASSWORD: bac431b4
