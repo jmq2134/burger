@@ -35,7 +35,7 @@ connection.connect(function(err) {
 module.exports = connection;
 
 // CLEARDB_DATABASE_URL: 
-mysql://b78c94370867cb:bac431b4@us-cdbr-iron-east-05.cleardb.net/heroku_7dc163398f910b9?reconnect=true
+//mysql://b78c94370867cb:bac431b4@us-cdbr-iron-east-05.cleardb.net/heroku_7dc163398f910b9?reconnect=true
 
 // DB_HOST: us-cdbr-iron-east-05.cleardb.net
 // DB_DATABASE: heroku_7dc163398f910b9
