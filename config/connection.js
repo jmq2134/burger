@@ -11,6 +11,8 @@ var mysql = require("mysql");
 
 var connection;
 
+console.log(process.env.CLEARDB_DATABASE_URL);
+
 // if (process.env.CLEARDB_DATABASE_URL) {
 connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 // } else {
